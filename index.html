@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Horizon Hotels | Luxury Redefined</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Grand Horizon</h1>
+                <p>Hotels & Resorts</p>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#branches">Our Branches</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Services <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Luxury Rooms</a>
+                            <a href="#">Fine Dining</a>
+                            <a href="#">Spa & Wellness</a>
+                            <a href="#">Event Spaces</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn-book">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('hero1.jpg');">
+                <div class="hero-content container">
+                    <h2>Welcome to Grand Horizon</h2>
+                    <p>Experience unparalleled luxury and world-class service.</p>
+                    <a href="#" class="btn-primary">Explore Rooms</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('hero2.jpg');">
+                <div class="hero-content container">
+                    <h2>Breathtaking Views</h2>
+                    <p>Discover stunning locations and unforgettable vistas.</p>
+                    <a href="#" class="btn-primary">Our Locations</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('hero3.jpg');">
+                <div class="hero-content container">
+                    <h2>Exceptional Dining</h2>
+                    <p>Indulge in culinary masterpieces by award-winning chefs.</p>
+                    <a href="#" class="btn-primary">View Menus</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+
+    <section id="about" class="about-us container">
+        <h2>Our Story</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Since 1985, Grand Horizon Hotels & Resorts has set the standard for luxury hospitality. What began as a single boutique hotel has grown into an internationally recognized brand known for elegance, exceptional service, and unique experiences.</p>
+                <p>Our philosophy is simple: to anticipate our guests' needs before they even arise. We blend modern amenities with timeless sophistication to ensure every stay is memorable.</p>
+            </div>
+            <div class="about-highlight">
+                <div class="stat-item">
+                    <h3>35+</h3>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Iconic Locations</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10K+</h3>
+                    <p>Happy Guests Annually</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="branches" class="branches container">
+        <h2>Discover Our Branches</h2>
+        <p class="subtitle">Click an image to learn more.</p>
+        
+        <div class="branch-grid">
+            <div class="branch-card" onclick="openPopup('city-retreat')">
+                <div class="branch-image" style="background-image: url('branch1.jpg');">
+                    <div class="branch-overlay">
+                        <h3>The City Retreat</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="branch-card" onclick="openPopup('coastal-haven')">
+                <div class="branch-image" style="background-image: url('branch2.jpg');">
+                    <div class="branch-overlay">
+                        <h3>Coastal Haven</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="branch-card" onclick="openPopup('mountain-escape')">
+                <div class="branch-image" style="background-image: url('branch3.jpg');">
+                    <div class="branch-overlay">
+                        <h3>Mountain Escape</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup-city-retreat" class="popup-modal">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup('city-retreat')">&times;</span>
+            <img src="branch1.jpg" alt="City Retreat">
+            <h3>The City Retreat - Metropolis</h3>
+            <p>Located in the heart of the bustling city, The City Retreat offers sophisticated luxury for business travelers and urban explorers alike. Enjoy panoramic city views, a rooftop infinity pool, and easy access to major landmarks.</p>
+            <a href="#" class="btn-secondary">Book City Retreat</a>
+        </div>
+    </div>
+
+    <div id="popup-coastal-haven" class="popup-modal">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup('coastal-haven')">&times;</span>
+            <img src="branch2.jpg" alt="Coastal Haven">
+            <h3>Coastal Haven - Seaside</h3>
+            <p>Escape to tranquility at Coastal Haven, where sun-drenched beaches meet world-class luxury. Our private villas offer direct beach access, an award-winning spa, and exceptional seafood dining with ocean views.</p>
+            <a href="#" class="btn-secondary">Book Coastal Haven</a>
+        </div>
+    </div>
+
+    <div id="popup-mountain-escape" class="popup-modal">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup('mountain-escape')">&times;</span>
+            <img src="branch3.jpg" alt="Mountain Escape">
+            <h3>Mountain Escape - Alps</h3>
+            <p>Discover adventure and serenity at Mountain Escape. Nestled in stunning alpine scenery, we offer ski-in/ski-out access in winter and panoramic hiking trails in summer. Relax by cozy fireplaces and enjoy authentic mountain cuisine.</p>
+            <a href="#" class="btn-secondary">Book Mountain Escape</a>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <p>&copy; 2023 Grand Horizon Hotels & Resorts. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

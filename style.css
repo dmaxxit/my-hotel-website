@@ -1,0 +1,498 @@
+/* =========================================
+   GENERAL STYLES & RESET
+========================================= */
+:root {
+    --primary-color: #c49b63; /* Elegant Gold */
+    --secondary-color: #2c3e50; /* Dark Blue/Gray */
+    --text-color: #333;
+    --light-color: #f8f9fa;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 50px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* BUTTONS */
+.btn-book, .btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn-book {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-book:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--white);
+    color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* =========================================
+   HEADER & NAVIGATION
+========================================= */
+header {
+    background-color: rgba(44, 62, 80, 0.95);
+    color: var(--white);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin: -5px 0 0 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a:not(.btn-book) {
+    font-weight: 500;
+}
+
+.nav-links a:not(.btn-book):hover {
+    color: var(--primary-color);
+}
+
+/* DROPDOWN SERVICES */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+}
+
+.dropdown-content a {
+    color: var(--secondary-color) !important;
+    padding: 12px 16px;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* =========================================
+   HERO SLIDER
+========================================= */
+.hero {
+    height: 100vh;
+    position: relative;
+    padding: 0; /* Override default section padding */
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Add dark overlay to slides */
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    z-index: 2; /* Sit above the overlay */
+}
+
+.hero-content h2 {
+    color: var(--white);
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* SLIDER DOTS */
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+    transition: var(--transition);
+}
+
+.dot.active, .dot:hover {
+    background-color: var(--white);
+}
+
+/* =========================================
+   ABOUT US
+========================================= */
+.about-content {
+    display: flex;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.about-highlight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-item {
+    background-color: var(--light-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 5px solid var(--primary-color);
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.stat-item p {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* =========================================
+   BRANCHES GRID (Blur & Hover Effects)
+========================================= */
+.branch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.branch-card {
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.branch-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* Apply base transition for the image itself */
+    transition: filter 0.5s ease-in-out; 
+}
+
+/* Initial overlay state (hidden) */
+.branch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.7); /* Dark semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Completely hidden */
+    transition: opacity 0.4s ease-in-out;
+}
+
+.branch-overlay h3 {
+    color: var(--white);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* HOVER EFFECTS - Pointing cursor */
+.branch-card:hover .branch-image {
+    /* Apply Blur Effect when pointing */
+    filter: blur(5px);
+}
+
+.branch-card:hover .branch-overlay {
+    /* Show popup name when pointing */
+    opacity: 1;
+}
+
+/* =========================================
+   POPUP MODALS
+========================================= */
+.popup-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    backdrop-filter: blur(5px); /* Add blur to background content */
+}
+
+/* Center the content */
+.popup-modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: slideInDown 0.5s ease-out; /* Add entry animation */
+}
+
+/* Popup entry animation */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-popup:hover {
+    color: var(--primary-color);
+}
+
+.popup-content img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.popup-content h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Prevent scrolling when popup is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
