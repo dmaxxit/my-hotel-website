@@ -492,3 +492,73 @@ footer {
     color: var(--primary-color);
     transform: translateY(-3px);
 }
+
+/* =========================================
+   MOBILE RESPONSIVE STYLES
+========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Header & Navigation */
+    .nav-container {
+        flex-direction: column; /* Stack logo above menu */
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+        gap: 10px;
+        flex-wrap: wrap; /* Let buttons wrap to next line if needed */
+        justify-content: center;
+    }
+
+    .nav-links li {
+        font-size: 0.85rem;
+    }
+
+    /* 2. Hero Section (Slider) */
+    .hero-content h2 {
+        font-size: 2.2rem; /* Shrink title for phone screens */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* 3. About Us Section */
+    .about-content {
+        flex-direction: column; /* Stack text and stats vertically */
+        gap: 30px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    /* 4. Branches Grid (The Big Change) */
+    .branch-grid {
+        grid-template-columns: 1fr; /* Change from 3 columns to 1 */
+        gap: 20px;
+    }
+
+    .branch-card {
+        height: 250px; /* Slightly shorter for scrolling ease */
+    }
+
+    /* 5. Popup Modals */
+    .popup-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .popup-content h3 {
+        font-size: 1.5rem;
+    }
+
+    /* 6. Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
