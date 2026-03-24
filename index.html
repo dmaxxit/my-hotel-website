@@ -150,6 +150,39 @@
         </div>
     </div>
 
+<section id="booking" class="container">
+    <h2>Reserve Your Stay</h2>
+    <p class="subtitle">Fill out the form below and our team will contact you shortly.</p>
+    
+    <div class="booking-form-container">
+        <form action="https://formspree.io/f/maqprpln" method="POST" class="booking-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <input type="email" name="email" placeholder="Your Email Address" required>
+            </div>
+            <div class="form-group">
+                <select name="branch" required>
+                    <option value="" disabled selected>Select Branch</option>
+                    <option value="city">The City Retreat</option>
+                    <option value="coastal">Coastal Haven</option>
+                    <option value="mountain">Mountain Escape</option>
+                </select>
+                <select name="room-type" required>
+                    <option value="" disabled selected>Room Type</option>
+                    <option value="deluxe">Deluxe Room</option>
+                    <option value="suite">Executive Suite</option>
+                    <option value="villa">Private Villa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Check-in: <input type="date" name="check-in" required></label>
+                <label>Check-out: <input type="date" name="check-out" required></label>
+            </div>
+            <button type="submit" class="btn-book" style="width: 100%; cursor: pointer;">Send Reservation Request</button>
+        </form>
+    </div>
+</section>
+
     <footer id="contact">
         <div class="container footer-content">
             <p>&copy; 2023 Gaga Addara Hotels & Resorts. All rights reserved.</p>
