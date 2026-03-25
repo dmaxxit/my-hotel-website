@@ -325,19 +325,25 @@ header {
 /* =========================================
    UPDATED BRANCHES GRID (Sharp Text, Blurry Image)
 ========================================= */
+.branch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
 .branch-card {
     position: relative; /* This keeps the text locked inside the card */
     cursor: pointer;
     border-radius: 10px;
     overflow: hidden;
-    height: 300px;
+    aspect-ratio: 1 / 1;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .branch-image {
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     transition: transform 0.5s ease, filter 0.5s ease; /* Smooth transition */
 }
@@ -543,7 +549,7 @@ footer {
     }
 
     .branch-card {
-        height: 250px; /* Slightly shorter for scrolling ease */
+        aspect-ratio: 1 / 1; /* Keep cards square on mobile */
     }
 
     /* 5. Popup Modals */
@@ -591,4 +597,30 @@ footer {
     .form-group {
         flex-direction: column;
     }
+}
+
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25D366; /* WhatsApp Green */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: var(--transition);
+    border: none;
+    width: 100%; /* Match the width of the other button */
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E; /* Darker WhatsApp Green */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp i {
+    font-size: 1.4rem;
 }
