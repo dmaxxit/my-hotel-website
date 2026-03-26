@@ -40,7 +40,6 @@ function currentSlide(index) {
 // Start the automatic slider
 let slideInterval = setInterval(nextSlide, slideIntervalTime);
 
-
 /* =========================================
    2. BRANCH POPUP MODALS
 ========================================= */
@@ -73,4 +72,44 @@ window.onclick = function(event) {
         event.target.classList.remove('show');
         document.body.classList.remove('modal-open');
     }
+}
+
+/* =========================================
+   3. STATISTICS COUNTER ANIMATION
+========================================= */
+
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-item h3');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const suffix = counter.getAttribute('data-suffix') || '';
+        let count = 0;
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 50); // update every 50ms
+        
+        const timer = setInterval(() => {
+            count += step;
+            if (count >= target) {
+                count = target;
+                clearInterval(timer);
+            }
+            counter.innerText = Math.floor(count) + suffix;
+        }, 50);
+    });
+}
+
+// Trigger counters when the about section comes into view
+const aboutSection = document.getElementById('about');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target); // Only animate once
+        }
+    });
+}, { threshold: 0.5 });
+
+if (aboutSection) {
+    observer.observe(aboutSection);
 }
